@@ -33,6 +33,7 @@ Route::get('units-test','DataImportController@importUnits');
 Route::group(['auth','user_is_admin'],function (){
     //units
     Route::get('units','UnitController@index')->name('units');
+    Route::post('units','UnitController@store');
 
     //categories
     Route::get('categories','CategoryController@index')->name('categories');
