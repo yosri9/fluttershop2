@@ -10882,3 +10882,12 @@ a.text-dark:focus {
   }
 }
 
+.delete-btn {
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: none;
+  color: red;
+  position: absolute;
+  right: 10px;
+}
+

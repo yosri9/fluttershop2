@@ -30,7 +30,17 @@
                         @foreach($units as $unit)
                             <div class="col-md-3">
                                 <div class="alert alert-primary" role="alert">
+                                    <span>
+                                        <form action="{{route('units')}}" method="post" style="position: relative">
+                                            @csrf
+                                                <input type="hidden" name="_method" value="DELETE"/>
+                                                <input type="hidden" name="id" value="{{$unit->unit_id}}">
+                                                <button type="submit" class="delete-btn"><i class="fas fa-trash-alt"></i></button>
+
+                                        </form>
+                                    </span>
                                     <p>{{$unit->unit_name}},{{$unit->unit_code }}</p>
+                                    <p>{{$unit->id}}</p>
 
                                 </div>
 
@@ -43,19 +53,7 @@
             </div>
         </div>
     </div>
-    @if (Session::has('message'))
-        <div class="toast" style="position: absolute;z-index:99999;top:5%;right: 5%;" role="alert" aria-live="assertive"
-             aria-atomic="true">
-            <div class="toast-header">
-                <strong class="mr-auto">Unit</strong>
-                <span aria-hidden="true">&times;</span>
-            </div>
-            <div class="toast-body">
 
-                {{Session::get('message')}}
-            </div>
-        </div>
-    @endif
 
 
 @endsection
