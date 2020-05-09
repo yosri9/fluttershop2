@@ -47,6 +47,7 @@ Route::group(['auth','user_is_admin'],function (){
     //Tags
 
     Route::get('tags','TagController@index')->name('tags');
+    Route::post('tags','TagController@store');
 
 
     //Payments
