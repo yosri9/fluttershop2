@@ -49,8 +49,22 @@
                             </div>
                         @endforeach
                     </div>
+                                {{--                    //***--}}
+                    {{(!is_null($showLinks) && $showLinks) ? $units->links():''}}
 
-                    {{$units->links()}}
+                    <form action="{{route('search-units')}}" method="post">
+                        @csrf
+                        <div class="row">
+                            <div class="form-group col-md-6 ">
+                                <input type="text" class="form-control" id="unit_search" name="unit_search"
+                                       placeholder="Search Unit" required>
+                            </div>
+                            <div class="form-group col-md-6 ">
+                                <button type="submit" class="btn btn-primary">SEARCH</button>
+
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
