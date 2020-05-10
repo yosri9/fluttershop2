@@ -32,9 +32,8 @@
                                 <div class="alert alert-primary" role="alert">
                                    <span class="buttons-span">
                                         <span><a class="edit-unit"
-                                                 data-unitname="{{$unit->unit_name}}"
-                                                 data-unitcode="{{$unit->unit_code}}"
-                                                 data-unitid="{{$unit->id}}"><i class="fas fa-edit"></i></a></span>
+                                                 data-tagname="{{$unit->unit_name}}"
+                                                  data-tagid="{{$unit->id}}"><i class="fas fa-edit"></i></a></span>
                                        <span><a class="delete-unit"
                                                 data-unitname="{{$unit->unit_name}}"
                                                 data-unitcode="{{$unit->unit_code}}"
@@ -52,7 +51,7 @@
                                 {{--                    //***--}}
                     {{(!is_null($showLinks) && $showLinks) ? $units->links():''}}
 
-                    <form action="{{route('search-units')}}" method="post">
+                    <form action="{{route('search-units')}}" method="get">
                         @csrf
                         <div class="row">
                             <div class="form-group col-md-6 ">
