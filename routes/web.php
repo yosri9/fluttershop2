@@ -44,9 +44,15 @@ Route::group(['auth','user_is_admin'],function (){
     Route::delete('categories','CategoryController@delete');
     Route::put('categories','CategoryController@update');
     Route::get('search-categories','CategoryController@search')->name('search-categories');
-    
+
     //Products
     Route::get('products','ProductController@index')->name('products');
+
+    Route::get('new-product/{id?}','ProductController@newProduct')->name('new-product');
+    Route::get('update-product/{id}','ProductController@newProduct')->name('update-product');
+    Route::post('update-product','ProductController@update')->name('update-product');
+    Route::post('products','ProductController@store');
+    Route::delete('products/{id}','ProductController@delete');
     //Tags
 
     Route::get('tags','TagController@index')->name('tags');

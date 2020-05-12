@@ -9,7 +9,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="{{route('new-product')}}" method="post" class="row">
+                    <form action="{{route('update-product')}}" method="post" class="row">
                         @csrf
                         @if(! is_null($product)  )
                             <input type="hidden" name="_method" value="PUT"/>
@@ -89,6 +89,10 @@
                         {{--                        Options--}}
 
                         <div class="form-group col-md-12 ">
+                            <input type="text">
+                            <table id="options-table" class="table table-striped">
+
+                            </table>
                             <a class="btn btn-info add-option-btn" href="#">
                                 Add Options
                             </a>
@@ -96,6 +100,7 @@
                         </div>
 
                         {{--                        /options--}}
+
                     </form>
                 </div>
             </div>
@@ -114,7 +119,7 @@
                     </button>
                 </div>
 
-                <div class="modal-body row" >
+                <div class="modal-body row">
 
                     <div class="form-group col-md-6 ">
                         <label for="option_name">Option Name</label>
@@ -134,7 +139,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
-                    <button type="submit" class="btn btn-primary">ADD OPTION</button>
+                    <button type="submit" class="btn btn-primary add-option-button">ADD OPTION</button>
                 </div>
 
             </div>
@@ -147,13 +152,58 @@
 @section('scripts')
     <script>
         $(document).ready(function () {
-            var $optionWindow=$('#options-window');
-            var addOptionBtn=$('.add-option-btn');
+            var $optionWindow = $('#options-window');
+            var addOptionBtn = $('.add-option-btn');
+            var $optionsTable = $('#options-table');
 
-            addOptionBtn.on('click' ,function (e) {
+            addOptionBtn.on('click', function (e) {
                 e.preventDefault();
                 $optionWindow.modal('show');
-            })
+
+            });
+            $(document).on('click','.remove-option',function (e) {
+                e.preventDefault();
+                $(this).parent().parent().remove();
+            });
+
+            $(document).on('click', '.add-option-button', function (e) {
+                e.preventDefault();
+
+                var $optionName = $('#option_name');
+                if ($optionName.val() === '') {
+                    alert('Option Name is required');
+                    return false;
+                }
+
+                var $optionValue = $('#option_value');
+                if ($optionValue.val() === '') {
+                    alert('Option Value is required');
+                    return false
+                }
+                var optionRow = `
+            <tr>
+                <td>
+                    ` + $optionName.val() + `
+                </td>
+                <td>
+                    ` + $optionValue.val() + `
+                </td>
+                <td>
+                        <a href="" class="remove-option"><i class="fas fa-minus-circle"></i></a>
+                        <input type="hidden" name="`+$optionName.val()+`" value="`+$optionValue.val()+`">
+                </td>
+
+            </tr>
+            `;
+
+                $optionsTable.append(
+                    optionRow
+                );
+
+                $optionValue.val('')
+
+
+            });
 
         })
     </script>

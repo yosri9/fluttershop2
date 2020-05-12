@@ -20,10 +20,13 @@ class Product extends Model
     }
 
     public function category(){
-        return $this->belongsTo(Category::class );
+        return $this->belongsTo(Category::class ,'category_id','id' );
     }
 
     public function tags(){
         return $this->belongsToMany(Tag::class);
+    }
+    public function hasUnit(){
+        return $this->belongsTo(Unit::class ,'unit' , 'id' );
     }
 }

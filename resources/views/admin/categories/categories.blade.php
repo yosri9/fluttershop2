@@ -11,7 +11,7 @@
                     <form action="{{route('categories')}}" method="post" class="row">
                         @csrf
                         <div class="form-group col-md-6 ">
-                            <label for="unit_text">Category Name</label>
+                            <label for="category_name">Category Name</label>
                             <input type="text" class="form-control" id="category_name" name="category_name"
                                    placeholder="Category Name" required>
                         </div>
