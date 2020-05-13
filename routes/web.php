@@ -47,11 +47,12 @@ Route::group(['auth','user_is_admin'],function (){
 
     //Products
     Route::get('products','ProductController@index')->name('products');
-
     Route::get('new-product/{id?}','ProductController@newProduct')->name('new-product');
+    Route::post('new-product','ProductController@store');
+
     Route::get('update-product/{id}','ProductController@newProduct')->name('update-product');
-    Route::post('update-product','ProductController@update')->name('update-product');
-    Route::post('products','ProductController@store');
+
+    Route::get('update-product','ProductController@update')->name('update-product');
     Route::delete('products/{id}','ProductController@delete');
     //Tags
 
