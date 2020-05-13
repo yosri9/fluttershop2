@@ -133,7 +133,7 @@
                                placeholder="option Name" required>
                     </div>
                     <div class="form-group col-md-6 ">
-                        <label for="option_value">Option</label>
+                        <label for="option_value">Option Value</label>
                         <input type="text" class="form-control" id="option_value" name="option_value"
                                placeholder="Option value" required>
                     </div>
