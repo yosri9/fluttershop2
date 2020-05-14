@@ -10918,3 +10918,36 @@ span.product-header-title {
 a.remove-option{
     color: #ff362f;
 }
+
+a.activate-image-upload{
+    display: block;
+}
+
+a.activate-image-upload:hover {
+
+}
+
+
+a.image-card-upload img{
+
+
+}
+
+.image-card-upload .card-body i{
+ font-size: 6rem;
+    color: #6193ff;
+}
+
+input.image-file-upload{
+    display: none;
+}
+
+.image-card-upload a.remove-image-upload{
+    font-size: 2rem;
+    color: #ff382d;
+    position: absolute;
+    top:15px;
+    right: 15px;
+    z-index: 99999;
+    display: none;
+}
