@@ -30,6 +30,9 @@ Route::get('countries','Api\CountryController@index');
 Route::get('countries/{id}/cities','Api\CountryController@showCities');
 Route::get('countries/{id}/states','Api\CountryController@showStates');
 
+Route::get('users',function (){
+   return \App\Http\Resources\UserfullResource::collection(\App\User::paginate());
+});
 
 Route::group(['auth:api'], function (){
 
