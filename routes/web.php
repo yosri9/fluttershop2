@@ -49,10 +49,11 @@ Route::group(['auth','user_is_admin'],function (){
     Route::get('products','ProductController@index')->name('products');
     Route::get('new-product/{id?}','ProductController@newProduct')->name('new-product');
     Route::post('new-product','ProductController@store');
+    Route::post('delete-image','ProductController@deleteImage')->name('delete-image');
 
-    Route::get('update-product/{id}','ProductController@newProduct')->name('update-product');
+    Route::get('update-product/{id}','ProductController@newProduct')->name('update-product-form');
 
-    Route::get('update-product','ProductController@update')->name('update-product');
+    Route::put('update-product','ProductController@update')->name('update-product');
     Route::delete('products/{id}','ProductController@delete');
     //Tags
 

@@ -40,7 +40,7 @@
 {{--                                        </table>--}}
                                     @endif
 
-                                    <a class="btn btn-success mt-2" href="{{route('update-product' , ['id'=>$product->id])}}"> Update Product</a>
+                                    <a class="btn btn-success mt-2" href="{{route('update-product-form' , ['id'=>$product->id])}}"> Update Product</a>
                                 </div>
 
                             </div>
