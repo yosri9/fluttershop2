@@ -8,13 +8,35 @@
 
 
                 <div class="card-body">
-                    <form action="{{route('categories')}}" method="post" class="row">
+                    <form action="{{route('categories')}}" method="post" class="row" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group col-md-6 ">
                             <label for="category_name">Category Name</label>
                             <input type="text" class="form-control" id="category_name" name="category_name"
                                    placeholder="Category Name" required>
                         </div>
+                        <div class="form-group col-md-6 ">
+                            <label for="category_name">Category Image</label>
+                            <input type="file" class="form-control-file" id="category_image" name="category_image"
+                                    required>
+                        </div>
+                        <div class="form-group col-md-6 ">
+                            <label for="category_name">Image Direction</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="image_direction" id="exampleRadios1" value="left" checked>
+                                <label class="form-check-label" for="exampleRadios1">
+                                    Left
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="image_direction" id="exampleRadios2" value="right">
+                                <label class="form-check-label" for="exampleRadios2">
+                                    Right
+                                </label>
+                            </div>
+
+                        </div>
+
 
                         <div class="col-md-12">
                             <button type="submit" class="btn btn-primary">Save New Category</button>
