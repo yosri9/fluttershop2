@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 //Get Categories
 Route::get('categories','Api\CategoryController@index');
 Route::get('categories/{id}','Api\CategoryController@show');
+Route::get('categories/{id}/products' , 'Api\CategoryController@products' );
 //Get Tags
 Route::get('tags','Api\TagController@index');
 Route::get('tags/{id}','Api\TagController@show');
